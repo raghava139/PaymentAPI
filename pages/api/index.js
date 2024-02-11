@@ -1,11 +1,25 @@
-// pages/charge.js
+// pages/index.js
 import request from 'request';
 
 export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method Not Allowed' });
+  if (req.method === 'GET') {
+    // Handle GET request
+    handleGet(req, res);
+  } else if (req.method === 'POST') {
+    // Handle POST request
+    handlePost(req, res);
+  } else {
+    // Handle other HTTP methods
+    res.status(405).json({ error: 'Method Not Allowed' });
   }
+}
 
+async function handleGet(req, res) {
+  // Implement your GET request logic here
+  res.status(200).json({ message: 'GET request handled' });
+}
+
+async function handlePost(req, res) {
   const data = {
     amount: req.body.amount,
     source: req.body.source,
