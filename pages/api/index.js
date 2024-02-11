@@ -3,19 +3,15 @@ import request from 'request';
 
 export default async function handler(req, res) {
   if (req.method === 'GET') {
-    // Handle GET request
     handleGet(req, res);
   } else if (req.method === 'POST') {
-    // Handle POST request
     handlePost(req, res);
   } else {
-    // Handle other HTTP methods
     res.status(405).json({ error: 'Method Not Allowed' });
   }
 }
 
 async function handleGet(req, res) {
-  // Implement your GET request logic here
   res.status(200).json({ message: 'GET request handled' });
 }
 
@@ -32,10 +28,10 @@ async function handlePost(req, res) {
     {
       json: data,
       headers: {
-        accept: 'application/json',
-        authorization: 'Bearer 556fb282-1c3c-8afc-232c-8da96860b816',
-        'content-type': 'application/json',
-        'x-forwarded-for': '43XXB9T95PBSR',
+        "accept": "application/json",
+        "authorization": "Bearer 556fb282-1c3c-8afc-232c-8da96860b816",
+        "content-type": "application/json",
+        "x-forwarded-for": "43XXB9T95PBSR"
       },
     },
     (error, response, body) => {
